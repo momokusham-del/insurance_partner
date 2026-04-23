@@ -23,6 +23,13 @@ test:
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
 production:
-  <<: *default
-  adapter: postgresql
-  url: <%= ENV.fetch("DATABASE_URL", "") %>
+  primary: &primary_production
+    <<: *default
+    adapter: postgresql
+    url: <%= ENV.fetch("DATABASE_URL", "") %>
+  cable:
+    <<: *primary_production
+  queue:
+    <<: *primary_production
+  cache:
+    <<: *primary_production
