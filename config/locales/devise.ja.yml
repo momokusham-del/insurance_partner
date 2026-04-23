@@ -1,0 +1,18 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "すでにログアウトしています。"
+    registrations:
+      signed_up: "アカウント登録が完了しました。"
+      updated: "アカウント情報を更新しました。"
+    failure:
+      already_authenticated: "すでにログインしています。"
+      unauthenticated: "この画面を見るには、ログインが必要です。"
+      invalid: "メールアドレスまたはパスワードが違います。"
+    passwords:
+      send_instructions: "パスワードの再設定方法を数分以内にメールで送信します。"
+      updated: "パスワードが正しく変更されました。ログインしています。"
+      updated_not_active: "パスワードが正しく変更されました。"
+      send_paranoid_instructions: "メールアドレスが登録されている場合、パスワード再設定用のメールを数分以内に送信します。"

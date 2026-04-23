@@ -1,0 +1,36 @@
+<header class="app-header">
+  <div class="header-left"></div>
+  
+  <h1 class="header-title">顧客リスト</h1>
+  
+  <div class="header-right">
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn-logout" %>
+  </div>
+</header>
+
+<main class="customer-list-area">
+  
+  <div class="sort-buttons">
+    <button>名前順</button>
+    <button>年齢順</button>
+  </div>
+
+  <% @customers.each do |customer| %>
+    
+    <div class="customer-card">
+      <%= link_to customer_path(customer), class: "card-link" do %>
+        
+        <h2 class="customer-name"><%= customer.name %></h2>
+        
+        <p class="customer-details">
+          💼 加入商品: <%= customer.product %><br>
+          📈 状態: <%= customer.status %>
+        </p>
+
+      <% end %>
+    </div>
+
+  <% end %>
+</main>
+
+<%= link_to '＋ 新規登録', new_customer_path, class: "btn-floating-new" %>

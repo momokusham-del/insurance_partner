@@ -1,0 +1,277 @@
+/*
+ * This is a manifest file that'll be compiled into application.css.
+ *
+ * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+ * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+ * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+ * depending on specificity.
+ *
+ * Consider organizing styles into separate files for maintainability.
+ */
+
+ /* ① 全体の基本設定（リセットとベース） */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f0f4f8; /* 爽やかで信頼感のある薄い青灰色 */
+  color: #333333;
+  /* 一番下にボタンを固定するため、一番下のリストが隠れないように余白を作る */
+  padding-bottom: 80px; 
+}
+
+/* ② ヘッダー（一番上の青い帯） */
+.app-header {
+  background-color: #004080; /* 保険業界にふさわしい誠実なロイヤルブルー */
+  color: white;
+  padding: 16px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* 並び替えボタンの整列 */
+.sort-buttons {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* ボタンとボタンの隙間 */
+}
+
+.sort-buttons button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px; /* 丸みを持たせてスマホらしく */
+  background-color: white;
+  color: #004080;
+  font-weight: bold;
+}
+
+/* ③ メイン（顧客リストの部分） */
+.customer-list {
+  padding: 16px;
+}
+
+/* ★超重要：顧客カードのデザイン */
+.customer-card {
+  background-color: white;
+  border-radius: 12px; /* 角を丸くして優しい印象に */
+  padding: 16px;
+  margin-bottom: 16px;
+  /* カードが少し浮き上がって見える影（シャドウ）をつける */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* カード内の文字デザイン */
+.furigana {
+  font-size: 12px;
+  color: #888888;
+}
+
+.card-header h2 {
+  margin: 4px 0 12px 0;
+  font-size: 18px;
+  display: flex;
+  align-items: baseline; /* 名前と年齢の高さをピタッと合わせる */
+}
+
+.age {
+  font-size: 14px;
+  color: #666666;
+  margin-left: 8px;
+}
+
+.card-body p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* タグ（付箋）のデザイン */
+.card-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #cccccc; /* 点線で区切る */
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.status-active { background-color: #ffebee; color: #c62828; } /* 商談中（赤） */
+.tag-golf { background-color: #e8f5e9; color: #2e7d32; } /* ゴルフ（緑） */
+
+/* ④ フッター（一番下の固定ボタン） */
+.bottom-nav {
+  position: fixed; /* ★画面の一番下にピタッと貼り付ける魔法 */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 12px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* 上に向かって影を出す */
+  text-align: center;
+}
+
+/* 新規登録ボタンを親指で押しやすく、大きくする */
+.btn-add {
+  background-color: #ff9800; /* 目立つオレンジ色で迷わせない */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 80%; /* スマホの横幅いっぱいに近くする */
+}
+
+/* =========================================
+   詳細画面（show.html）専用のスタイル
+   ========================================= */
+
+/* ① ヘッダーの戻るボタン */
+.btn-back {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  position: absolute; /* 左端に固定 */
+  left: 16px;
+  top: 16px;
+}
+
+/* ② 詳細情報のカード */
+.detail-info-card {
+  background-color: white;
+  padding: 16px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.detail-info-card p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+/* ③ LINE風メモ（タイムライン） */
+.timeline {
+  padding: 0 16px;
+}
+
+.timeline-title {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 12px;
+}
+
+.memo-bubble {
+  background-color: white;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  /* 左側に少し太い青い線を入れて、履歴っぽさを出す */
+  border-left: 4px solid #004080; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.memo-date {
+  font-size: 12px;
+  color: #888888;
+  margin: 0 0 4px 0;
+}
+
+.memo-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5; /* 文字の行間を少し空けて読みやすく */
+}
+
+/* ④ 下部のメモ入力エリア（LINE風） */
+.memo-input-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f4f8;
+  padding: 12px;
+  display: flex; /* 横並びにする魔法 */
+  gap: 8px;
+  box-sizing: border-box;
+  border-top: 1px solid #cccccc;
+}
+
+.memo-input-area textarea {
+  flex-grow: 1; /* 入力欄を可能な限り広くする */
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px; /* 16px以上にしないと、iPhoneで自動ズームされてしまうのを防ぐ */
+  resize: none; /* 勝手にサイズが変わらないようにする */
+}
+
+.btn-send {
+  background-color: #004080;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-weight: bold;
+}
+
+/* 編集ボタンのブラッシュアップ */
+.btn-edit {
+  background-color: #ffca28; /* 信頼感のあるゴールド（黄色系）に変更 */
+  color: #333;               /* 文字は読みやすい濃いグレーに */
+  padding: 6px 15px;         /* ボタンの大きさを調整 */
+  border-radius: 20px;       /* 角を丸くして優しく押しやすい形に */
+  text-decoration: none;     /* 下線を消す */
+  font-weight: bold;         /* 文字を太くして目立たせる */
+  font-size: 0.8rem;         /* 少し小さめにしてスマートに */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* 軽く影をつけて浮かせます */
+  transition: 0.3s;          /* 押した時の動きを滑らかに */
+}
+
+/* ボタンに指が触れた時（ホバー）の変化 */
+.btn-edit:hover {
+  background-color: #ffd54f; /* 少しだけ明るくして、反応を返します */
+  transform: translateY(-1px); /* 1ミリ浮かせて「押せる感」を演出 */
+}
+
+/* ヘッダーを綺麗な横並びにする魔法 */
+.app-header {
+  display: flex;                 /* 横並びにします！という宣言 */
+  justify-content: space-between;/* 左・中・右に均等に散らばらせる */
+  align-items: center;           /* 縦の真ん中（高さ）を揃える */
+  padding: 10px 15px;            /* 少し余白を持たせる */
+}
+
+/* 左と右の箱の幅を同じにして、タイトルをど真ん中にする工夫 */
+.header-left, .header-right {
+  width: 60px; /* ここの幅を同じにすることで... */
+}
+.header-right {
+  text-align: right; /* 右側のボタンは右寄せに */
+}
+.header-title {
+  flex-grow: 1;      /* タイトルに残りの幅を全部使わせる */
+  text-align: center;/* そして文字を中央に！ */
+  margin: 0;
+  font-size: 1.1rem; /* スマホにちょうどいい文字サイズ */
+}
+
+/* ログアウトボタンのスタイル */
+.btn-logout {
+  background-color: transparent; /* 背景を透明に */
+  color: #ffffff;                /* 文字は白 */
+  border: 1px solid #ffffff;     /* 白い細枠をつける */
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;            /* 少し小さめにして控えめに */
+  cursor: pointer;
+}

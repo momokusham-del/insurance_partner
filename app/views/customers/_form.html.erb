@@ -1,0 +1,32 @@
+<%= form_with(model: customer, class: "customer-form", local: true) do |form| %>
+
+  <div class="form-group">
+    <%= form.label :name, "お名前（必須）" %>
+    <%= form.text_field :name, class: "form-input", placeholder: "例: 山田 太郎" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :furigana, "ふりがな" %>
+    <%= form.text_field :furigana, class: "form-input", placeholder: "例: やまだ たろう" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :birth_date, "生年月日" %>
+    <%= form.date_field :birth_date, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status, "営業状況" %>
+    <%= form.select :status, ["初回面談済", "提案中", "成約", "保留"], { prompt: "選択してください" }, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :product, "検討・加入商品" %>
+    <%= form.text_field :product, class: "form-input", placeholder: "例: 医療保険、がん保険" %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit "この内容で登録する", class: "btn-submit" %>
+  </div>
+
+<% end %>

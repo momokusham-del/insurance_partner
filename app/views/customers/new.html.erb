@@ -1,0 +1,13 @@
+<header class="app-header">
+  <div class="header-left">
+    <%= link_to '＜ 戻る', customers_path, class: "btn-back" %>
+  </div>
+  <h1 class="header-title">新規顧客登録</h1>
+  <div class="header-right"></div>
+</header>
+
+<main class="form-main-area">
+  <div class="form-card">
+    <%= render "form", customer: @customer %>
+  </div>
+</main>

@@ -1,0 +1,41 @@
+<header class="app-header">
+  <div class="header-left"></div>
+  <h1 class="header-title">アカウント登録</h1>
+  <div class="header-right"></div>
+</header>
+
+<main class="form-main-area">
+  <div class="form-card">
+    <p class="form-guide">新しくアプリを使うためのアカウントを作成します。</p>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input", placeholder: "test@example.com" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, "パスワード" %>
+        <% if @minimum_password_length %>
+          <small class="form-hint" style="color: #666; font-size: 12px;">（<%= @minimum_password_length %>文字以上）</small>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-input" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, "パスワード（確認用）" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "アカウントを作成する", class: "btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="form-links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</main>

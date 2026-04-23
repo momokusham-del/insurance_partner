@@ -1,0 +1,26 @@
+<header class="app-header">
+  <h1>パスワード再設定</h1>
+</header>
+
+<main class="form-main-area">
+  <div class="form-card">
+    <p class="form-guide">ご登録のメールアドレスを入力してください。<br>パスワード再設定用のメールをお送りします。</p>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input", placeholder: "test@example.com" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit "再設定メールを送信する", class: "btn-submit" %>
+      </div>
+    <% end %>
+
+    <div class="form-links">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</main>
