@@ -12,6 +12,7 @@
 
 <main class="customer-detail">
   <section class="detail-info-card">
+    <p><strong>ご住所:</strong> <%= @customer.address %></p>
     <p>🎂 生年月日: <%= @customer.birth_date %> </p>
     <p>💼 加入商品: <%= @customer.product %></p>
     <div class="tags">
@@ -23,10 +24,18 @@
     <h3 class="timeline-title">商談・メモ履歴</h3>
     
     <% @customer.memos.each do |memo| %>
-      <% if memo.persisted? %> <div class="memo-bubble">
+      <% if memo.persisted? %> 
+        <div class="memo-bubble">
           <p class="memo-date"><%= memo.created_at.strftime("%Y/%m/%d %H:%M") %></p>
           <p class="memo-text"><%= memo.content %></p>
-        </div>
+
+          <div style="text-align: right; margin-top: 10px;">
+            <%= button_to '削除', [@customer, memo], 
+                          method: :delete, 
+                          data: { turbo_confirm: '本当にこのメモを消してもいいですか？' }, 
+                          class: 'btn btn-sm btn-outline-danger' %>
+          </div>
+          </div>
       <% end %>
     <% end %>
   </section>

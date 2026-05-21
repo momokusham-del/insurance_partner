@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
   # 顧客の中にメモを入れ込む道案内
   resources :customers do
-    resources :memos, only: [:create]
-  end
+  resources :memos, only: [:create, :destroy]
+end
   
   # アプリを開いた時の最初の画面を「顧客リスト」にする
   root "customers#index"

@@ -4,6 +4,7 @@
   <h1 class="header-title">顧客リスト</h1>
   
   <div class="header-right">
+    <%= link_to '設定(パスワード変更)', edit_user_registration_path, style: "margin-right: 15px; color: white; font-size: 14px;" %>
     <%= button_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn-logout" %>
   </div>
 </header>
@@ -23,6 +24,7 @@
         <h2 class="customer-name"><%= customer.name %></h2>
         
         <p class="customer-details">
+          🏠 住所: <%= customer.address %><br>
           💼 加入商品: <%= customer.product %><br>
           📈 状態: <%= customer.status %>
         </p>

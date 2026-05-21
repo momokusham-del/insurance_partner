@@ -16,6 +16,10 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :address, "ご住所" %>
+    <%= form.text_field :address, class: "form-input", placeholder: "例: 岡山県倉敷市阿知1-1-1" %>
+  </div>
+  <div class="form-group">
     <%= form.label :status, "営業状況" %>
     <%= form.select :status, ["初回面談済", "提案中", "成約", "保留"], { prompt: "選択してください" }, class: "form-input" %>
   </div>

@@ -10,6 +10,22 @@ class MemosController < ApplicationController
     redirect_to customer_path(@customer)
   end
 
+  # 👇👇👇 ここから追加 👇👇👇
+  def destroy
+    # ① どのお客様のページから来たのかを探し出す
+    @customer = Customer.find(params[:customer_id])
+    
+    # ② そのお客様の帳簿の中から、消したい「特定のメモ」を探し出す
+    @memo = @customer.memos.find(params[:id])
+    
+    # ③ 見つけたメモをゴミ箱に捨てる（削除する）
+    @memo.destroy
+    
+    # ④ 削除が終わったら、もう一度そのお客様の詳細画面に戻る
+    redirect_to customer_path(@customer), status: :see_other
+  end
+  # 👆👆👆 ここまで追加 👆👆👆
+
   private
   # 悪意のあるデータ弾き、純粋な「メモの文章（content）」だけを安全に受け取る設定
   def memo_params

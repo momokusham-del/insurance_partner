@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_21_043024) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_21_111758) do
   create_table "customers", force: :cascade do |t|
+    t.string "address"
     t.date "birth_date"
     t.datetime "created_at", null: false
     t.string "furigana"
