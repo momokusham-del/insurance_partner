@@ -11,9 +11,9 @@
 
 <main class="customer-list-area">
   
-  <div class="sort-buttons">
-    <button>名前順</button>
-    <button>年齢順</button>
+  <div class="sort-buttons" style="margin-bottom: 20px; text-align: center;">
+    <%= link_to '名前順', customers_path(sort: 'name'), style: "padding: 8px 16px; margin-right: 10px; background-color: #f0f0f0; border-radius: 20px; text-decoration: none; color: #333; border: 1px solid #ccc;" %>
+    <%= link_to '年齢順', customers_path(sort: 'age'), style: "padding: 8px 16px; background-color: #f0f0f0; border-radius: 20px; text-decoration: none; color: #333; border: 1px solid #ccc;" %>
   </div>
 
   <% @customers.each do |customer| %>

@@ -2,8 +2,18 @@ class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show edit update destroy ]
 
   # GET /customers or /customers.json
+  # GET /customers or /customers.json
   def index
-    @customers = current_user.customers.all
+    if params[:sort] == 'name'
+      # 名前順（フリガナ順）が指定された場合
+      @customers = current_user.customers.order(:furigana)
+    elsif params[:sort] == 'age'
+      # 年齢順（生年月日順）が指定された場合
+      @customers = current_user.customers.order(birth_date: :asc)
+    else
+      # 何も指定されていない時は、登録が新しい順（デフォルト）
+      @customers = current_user.customers.order(created_at: :desc)
+    end
   end
 
   # GET /customers/1 or /customers/1.json
